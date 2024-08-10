@@ -1,0 +1,83 @@
+﻿@using Billy.Models
+@model IEnumerable<Product>
+
+	<div class="container">
+		<div class="row pt-4 pb-3">
+		<div class="col-6"> 
+			<h2>Product List</h2>
+		</div>
+		<div class="col-6 text-end">
+		<a asp-controller="Product" asp-action="Upsert" class="btn btn-primary">Upsert Product <i class="bi bi-building-add"></i> </a>
+		</div>
+		</div>
+	<table id="liststbl" class="table table-bordered table-striped">
+		<thead>
+		<tr>
+			<th>Title</th>
+			<th>Author</th>
+			<th>ISBN</th>
+			<th>ListPrice</th>
+			<th>Category</th>
+			<th></th>
+		</tr>
+		</thead>
+	</table>
+	
+
+	</div>
+
+@section scripts{
+	<script src="~/js/Product.js"></script>
+	@* <script>
+		(function () {
+			debugger
+			loadtable();
+		})();
+		function loadtable() {
+			
+			var dt = $('#liststbl').DataTable({
+				"ajax": {
+					url: '/Admin/Product/GetAll'
+					//,dataSrc: 'data'
+				}, 
+				"type": "GET",
+				"error": function (e) {
+				},
+				"dataSrc": function (data) {
+					return data
+				},
+				"columns": [
+					{ data: 'title', "width": "15%" },
+					{ data: 'author', "width": "15%" },
+					{ data: 'isbn', "width": "15%" },
+					{ data: 'price', "width": "15%" },
+					{ data: 'categoryID', "width": "15%" }
+				]
+			});
+			debugger
+		}
+
+	</script>  *@
+}
+
+@* @foreach (var item in Model)
+{
+	<tr>
+		<td>@item.Title</td>
+		<td>@item.Author</td>
+		<td>@item.ISBN</td>
+		<td>@item.ListPrice</td>
+		<td>@item.Price</td>
+		<td>@item.Price50</td>
+		<td>@item.Price100</td>
+		<td>@item.category.Name</td>
+		<td>
+			<a asp-action="Upsert" asp-route-id="@item.Id" class="btn btn-primary">Upsert <i class="bi bi-pencil-square"></i></a>|
+			<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete <i class="bi bi-trash3"></i></a>
+		</td>
+	</tr>
+
+} *@
+
+
+
